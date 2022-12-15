@@ -7,15 +7,12 @@ import java.util.ArrayList;
 
 public class TelaVerificarMenu {
 
-    private ArrayList<Prato> itemCardapio;
-
-    public static void verificarItemCardapio(String nome){
-        Menu menu = new Menu();
-        for( Prato itemCardapio: menu.getPrato()){
-            if(itemCardapio.getNome().equals(nome)){
-                System.out.println("Disponível no cardápio.");
+    public static void verificarItemCardapio(String itemPesquisar, Menu menu){
+        for( Prato itemCardapio : menu.getMenu()){
+            if(itemCardapio.getNome().equalsIgnoreCase(itemPesquisar)){
+                System.out.printf("%s\t- Disponível no cardápio.%n",itemPesquisar);
             } else {
-                System.out.println("INdisponível no cardápio.");
+                System.out.printf("%s\t- Está em falta.%n",itemPesquisar);
             }
         }
     }

@@ -3,7 +3,7 @@ package org.example.entidades;
 import java.util.ArrayList;
 
 public class Menu {
-    private ArrayList<Prato> prato;
+    private ArrayList<Prato> menu;
 
 //    private static Menu instance;
 //
@@ -13,22 +13,23 @@ public class Menu {
 //    private Menu() {
 //
 //    }
-
     public Menu() {
-        prato = new ArrayList<>();
-    }
-
-    public void verificaritem() {
+        menu = new ArrayList<>();
     }
 
     public void adicionarPrato(Prato prato){ //validar se a quantidade está nula
-
-
-        this.prato.add(prato);
+        menu.add(prato);
     }
 
-    public ArrayList<Prato> getPrato() {
-        return prato;
+    public ArrayList<Prato> getMenu() {
+        return menu;
+    }
+
+    public void imprimirMenu(){
+        for(Prato p : menu){
+            System.out.printf("[(%d) - %s R$ %.2f ]\n",p.getIdProduto(),p.getNome(), p.getValor());
+            System.out.printf("Descrição:\t%s\n",p.getDescricao());
+        };
     }
 
 }

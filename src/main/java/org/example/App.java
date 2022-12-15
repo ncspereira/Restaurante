@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.entidades.Equipe;
+import org.example.entidades.Menu;
 import org.example.telas.TelaCliente;
 import org.example.telas.TelaGestor;
 
@@ -19,21 +21,25 @@ import java.util.Scanner;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Bem vindo ao restaurante Los Pollos Hermanos.");
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Bem vindo ao restaurante Los Pollos Hermanos.");
+
+        Menu menu =new Menu();
+        Equipe equipe = new Equipe();
+
+        //Cliente cliente = new Cliente();
+
         int opcao = 0;
 
         do {
-            System.out.println("Entrar como: \n (1) Gestor; \n (2) Cliente;\n (0) Sair");
+            System.out.println("Entrar como:\n\t(1) Gestor;\n\t(2) Cliente;\n\t(0) Sair");
             opcao = scanner.nextInt();
             switch (opcao) {
                 case 1:
-                    TelaGestor telaGestor = new TelaGestor();
-                    telaGestor.funcoesGestor();
+                    TelaGestor.funcoesGestor(scanner,equipe,menu);
                     break;
                 case 2:
-                    TelaCliente telaCliente = new TelaCliente();
-                    telaCliente.opcoesCliente();
+                    TelaCliente.opcoesCliente(scanner,menu);
                     break;
                 case 0:
                     break;
