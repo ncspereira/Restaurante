@@ -3,17 +3,19 @@ package org.example.telas;
 import org.example.entidades.Menu;
 import org.example.entidades.Prato;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TelaVerificarMenu {
 
-    public static void verificarItemCardapio(String itemPesquisar, Menu menu){
+    public static boolean verificarItemCardapio(Scanner scanner, Menu menu){
+        scanner.nextLine();
+        System.out.println("Informe o nome do Prato que deseja:");
+        String itemPesquisar = scanner.nextLine();
         for( Prato itemCardapio : menu.getMenu()){
             if(itemCardapio.getNome().equalsIgnoreCase(itemPesquisar)){
-                System.out.printf("%s\t- Disponível no cardápio.%n",itemPesquisar);
-            } else {
-                System.out.printf("%s\t- Está em falta.%n",itemPesquisar);
+                return true;
             }
         }
+        return false;
     }
 }

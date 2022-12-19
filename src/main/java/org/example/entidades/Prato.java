@@ -2,28 +2,21 @@ package org.example.entidades;
 
 public class Prato {
     private String nome;
-    private String descricao;
-    private String tipo;
+    private TipoPrato tipo;
     private double valor;
-    private int quantidade;
-    private int idProduto;
-    public Prato(String nome, String descricao, String tipo, double valor) {
+    private int idPrato;
+    public Prato(String nome, TipoPrato tipo, double valor, int idPrato) {
         this.nome = nome;
-        this.descricao = descricao;
         this.tipo = tipo;
         this.valor = valor;
-        this.idProduto++; //refer
+        this.idPrato = idPrato;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getTipo() {
+    public TipoPrato getTipo() {
         return tipo;
     }
 
@@ -32,29 +25,8 @@ public class Prato {
     }
 
     public int getIdProduto() {
-        return idProduto;
+        return idPrato;
     }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public Double getValorTotal() {
-        if (quantidade == 0) quantidade = 1;
-        return valor*=quantidade;
-    }
-
-    @Override
-    public String toString() {
-        return "Pratos{" +
-                "nome='" + nome + '\'' +
-                ", valor=" + getValor() +
-                ", quantidade=" + quantidade +
-                '}';
-    }
 }
 

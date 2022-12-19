@@ -1,18 +1,16 @@
 package org.example.entidades;
 
-import java.util.UUID;
 
 public class Garcom {
 
-    //Listar o Menu para o cliente
-    //Permitir pedir um prato pelo Menu
     private final String nome;
     private String classificacao;
-    //private String idGarcom;
+    private int idGarcom;
 
-    public Garcom(String nome) {
+    public Garcom(String nome,int idGarcom) {
         this.nome = nome;
         this.classificacao = "PERÍODO DE EXPERIÊNCIA";
+        this.idGarcom = idGarcom;
     }
 
     public String getNome() {
@@ -23,8 +21,19 @@ public class Garcom {
         return this.classificacao;
     }
 
+    public int getIdGarcom() {
+        return idGarcom;
+    }
+
     public void efetivaGarcom(){
         this.classificacao = "EFETIVO";
+    }
+
+    public double valorGorjeta(){
+        if(this.classificacao.equals("EFETIVO")){
+            return 0.10;
+        }
+        return 0.05;
     }
 }
 
